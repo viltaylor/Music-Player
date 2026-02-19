@@ -1,5 +1,8 @@
 <template>
   <div class="min-h-screen flex flex-col items-center justify-center px-4">
+    <!-- Title -->
+    <h1 class="text-4xl font-semibold mb-16">SpoJeDy</h1>
+
     <!-- Navbar -->
     <nav class="flex gap-10 mb-10 text-sm">
       <RouterLink to="/" class="hover:underline">Home</RouterLink>
@@ -7,33 +10,27 @@
       <RouterLink to="/profile" class="hover:underline">Profile</RouterLink>
     </nav>
 
-    <!-- Title -->
-    <h1 class="text-4xl font-semibold mb-16">SpoJeDy</h1>
-
     <!-- Song Cards -->
-    <div class="flex flex-col sm:flex-row gap-10">
-      <div
-        v-for="song in songs"
-        :key="song.id"
-        @click="goToDetail(song.id)"
-        class="w-64 cursor-pointer border border-gray-200 dark:border-gray-700 rounded-xl overflow-hidden hover:shadow-md transition"
-      >
-        <!-- Cover -->
-        <div class="w-full h-64 overflow-hidden">
+    <div class="flex flex-col gap-8 w-full max-w-100">
+      <div v-for="song in songs" :key="song.id" @click="goToDetail(song.id)"
+        class="cursor-pointer border border-gray-300 rounded-3xl p-6 flex items-center gap-6 hover:shadow-lg transition">
+        <!-- Cover (Left Square) -->
+        <div class="w-32 h-32 rounded-2xl overflow-hidden flex-shrink-0 border border-gray-200">
           <img :src="song.cover" class="w-full h-full object-cover" />
         </div>
 
-        <!-- Info -->
-        <div class="p-4 text-center">
-          <h2 class="text-lg font-medium">
+        <!-- Text Content (Right Side) -->
+        <div class="flex flex-col justify-center">
+          <h2 class="text-xl font-semibold mb-2">
             {{ song.title }}
           </h2>
-          <p class="text-sm text-gray-500 dark:text-gray-400">
+          <p class="text-gray-500 text-sm">
             {{ song.artist }}
           </p>
         </div>
       </div>
     </div>
+
   </div>
 </template>
 
@@ -45,8 +42,8 @@ const router = useRouter()
 const songs = [
   {
     id: 1,
-    title: 'Blinding Lights',
-    artist: 'The Weeknd',
+    title: 'Walking Back Home',
+    artist: 'FUR',
     cover: 'https://ik.imagekit.io/demo/img/image1.jpeg',
   },
   {

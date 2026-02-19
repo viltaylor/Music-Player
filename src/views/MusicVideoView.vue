@@ -1,22 +1,36 @@
 <template>
-  <div class="p-8">
-    <h1 class="text-3xl font-bold mb-6">🎬 Music Videos</h1>
+  <div class="min-h-screen px-6 py-16 flex flex-col items-center">
+    <!-- Back Button -->
+    <button @click="goHome" class="self-start mb-6 text-sm text-gray-500 hover:underline">
+      ← Back to Home
+    </button>
+    <!-- Title -->
+    <h1 class="text-4xl font-semibold mb-12">
+      Music Videos
+    </h1>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      <div
-        v-for="video in videos"
-        :key="video.id"
-        @click="goToDetail(video.id)"
-        class="bg-white dark:bg-gray-800 rounded-lg shadow-md cursor-pointer hover:scale-105 transition p-4"
-      >
-        <img :src="video.cover" class="w-full h-48 object-cover rounded-md" />
-        <h2 class="text-xl font-semibold mt-4">
-          {{ video.title }}
-        </h2>
-        <p class="text-gray-500 dark:text-gray-400">
-          {{ video.artist }}
-        </p>
+    <!-- Video Cards -->
+    <div class="flex flex-col gap-8 w-full max-w-3xl">
+
+      <div v-for="video in musicVideos" :key="video.id" @click="goToDetail(video.id)"
+        class="cursor-pointer border border-gray-200 rounded-3xl p-6 flex items-center gap-6 hover:shadow-lg hover:scale-[1.02] transition-all duration-300">
+        <!-- Cover -->
+        <div class="w-32 h-32 rounded-2xl overflow-hidden flex-shrink-0">
+          <img :src="video.cover" class="w-full h-full object-cover" />
+        </div>
+
+        <!-- Info -->
+        <div class="flex flex-col">
+          <h2 class="text-xl font-semibold mb-2">
+            {{ video.title }}
+          </h2>
+          <p class="text-gray-500 text-sm">
+            {{ video.artist }}
+          </p>
+        </div>
+
       </div>
+
     </div>
   </div>
 </template>
@@ -25,20 +39,24 @@
 import { useRouter } from 'vue-router'
 
 const router = useRouter()
+const goHome = () => {
+  router.push('/')
+}
 
-const videos = [
+// Dummy data (same length as songs)
+const musicVideos = [
   {
     id: 1,
-    title: 'Blinding Lights (MV)',
+    title: 'Blinding Lights (Official MV)',
     artist: 'The Weeknd',
-    cover: 'https://ik.imagekit.io/demo/img/image3.jpeg',
+    cover: 'https://ik.imagekit.io/demo/img/image1.jpeg'
   },
   {
     id: 2,
-    title: 'Levitating (MV)',
+    title: 'Levitating (Official MV)',
     artist: 'Dua Lipa',
-    cover: 'https://ik.imagekit.io/demo/img/image4.jpeg',
-  },
+    cover: 'https://ik.imagekit.io/demo/img/image2.jpeg'
+  }
 ]
 
 const goToDetail = (id) => {
