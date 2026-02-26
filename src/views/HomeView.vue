@@ -1,5 +1,7 @@
 <template>
-  <div class="min-h-screen flex flex-col items-center justify-center px-4">
+  <div
+    class="min-h-screen flex flex-col items-center justify-center px-4 bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100"
+  >
     <!-- Title -->
     <h1 class="text-4xl font-semibold mb-16">SpoJeDy</h1>
 
@@ -12,8 +14,12 @@
 
     <!-- Song Cards -->
     <div class="flex flex-col gap-8 w-full max-w-100">
-      <div v-for="song in songs" :key="song.id" @click="goToDetail(song.id)"
-        class="cursor-pointer border border-gray-300 rounded-3xl p-6 flex items-center gap-6 hover:shadow-lg transition">
+      <div
+        v-for="song in songs"
+        :key="song.id"
+        @click="goToDetail(song.id)"
+        class="cursor-pointer border border-gray-300 rounded-3xl p-6 flex items-center gap-6 hover:shadow-lg transition"
+      >
         <!-- Cover (Left Square) -->
         <div class="w-32 h-32 rounded-2xl overflow-hidden flex-shrink-0 border border-gray-200">
           <img :src="song.cover" class="w-full h-full object-cover" />
@@ -30,7 +36,6 @@
         </div>
       </div>
     </div>
-
   </div>
 </template>
 
@@ -48,8 +53,8 @@ const songs = [
   },
   {
     id: 2,
-    title: 'Levitating',
-    artist: 'Dua Lipa',
+    title: 'Nina',
+    artist: 'Feast.',
     cover: 'https://ik.imagekit.io/demo/img/image2.jpeg',
   },
 ]
