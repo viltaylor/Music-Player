@@ -1,14 +1,17 @@
 <template>
   <div class="min-h-screen bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-gray-100">
-    <div class="p-8 max-w-2xl mx-auto flex flex-col">
-      <!-- Back Button -->
+    <!-- Back Button (Full Width Container) -->
+    <div class="p-8">
       <button
         @click="goHome"
-        class="self-start mb-6 text-sm text-gray-500 hover:underline transition-all duration-200"
+        class="text-sm text-gray-500 hover:underline transition-all duration-200"
       >
         ← Back
       </button>
+    </div>
 
+    <!-- Centered Content -->
+    <div class="px-8 pb-8 max-w-2xl mx-auto flex flex-col">
       <h1 class="text-3xl font-bold mb-6">👤 Profile</h1>
 
       <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-md border border-black">
@@ -66,7 +69,7 @@
           <!-- Save -->
           <button
             @click="saveProfile"
-            class="w-full bg-black text-white py-2 rounded-xl hover:opacity-80 transition"
+            class="w-full bg-black dark:bg-white text-white dark:text-black py-2 rounded-xl hover:opacity-80 transition"
           >
             Save Profile
           </button>

@@ -4,7 +4,7 @@
   >
     <!-- Back Button -->
     <button @click="goHome" class="self-start mb-6 text-sm text-gray-500 hover:underline">
-      ← Back to Home
+      ← Back
     </button>
     <!-- Title -->
     <h1 class="text-4xl font-semibold mb-12">Music Videos</h1>
